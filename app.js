@@ -40,7 +40,7 @@ worker.addEventListener('message', ({ data }) => {
   }
 });
 
-worker.postMessage({ type: 'initialize', dataset: 'movie_recommendation_dataset.csv' });
+worker.postMessage({ type: 'initialize', model: 'recommendation_model.json' });
 
 form.addEventListener('submit', event => {
   event.preventDefault();

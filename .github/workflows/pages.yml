@@ -28,7 +28,7 @@ jobs:
       - name: Assemble website files
         run: |
           mkdir _site
-          cp index.html styles.css app.js worker.js movie_recommendation_dataset.csv .nojekyll _site/
+          cp index.html styles.css app.js worker.js recommendation_model.json .nojekyll _site/
       - name: Upload website files
         uses: actions/upload-pages-artifact@v4
         with:
