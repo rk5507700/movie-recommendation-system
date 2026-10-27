@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102c46">
+  <title>CineMatch — Movie Recommendations</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="CineMatch home"><span class="brand-mark" aria-hidden="true">C</span><span>CineMatch</span></a>
+    <span class="topbar-note">A movie discovery tool</span>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> CONTENT BASED RECOMMENDATIONS</p>
+        <h1 id="hero-title">Find your next<br><em>great movie.</em></h1>
+        <p class="hero-description">Choose a movie you love. CineMatch looks at its story, genre, keywords, cast, and director to find titles with similar details.</p>
+        <div class="hero-stats" aria-label="About the recommendation collection">
+          <div><strong>4,800</strong><span>movies in the collection</span></div>
+          <div class="stat-divider"></div>
+          <div><strong>5 signals</strong><span>used to compare each title</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="poster poster-back"><span>STORIES</span><b>✦</b></div>
+        <div class="poster poster-mid"><span>WIDE<br>WORLDS</span><b>◒</b></div>
+        <div class="poster poster-front"><span>YOUR<br>NEXT<br>FAVORITE</span><b>✧</b></div>
+        <span class="art-spark spark-one">✦</span><span class="art-spark spark-two">✧</span>
+      </div>
+    </section>
+
+    <section class="finder-wrap" aria-labelledby="finder-title">
+      <div class="finder-card">
+        <div class="finder-heading">
+          <div><p class="eyebrow dark-eyebrow">START WITH A TITLE</p><h2 id="finder-title">What should we watch next?</h2></div>
+          <div class="film-icon" aria-hidden="true">▤</div>
+        </div>
+        <form id="recommend-form" class="search-form" autocomplete="off">
+          <label class="visually-hidden" for="movie-title">Movie title</label>
+          <div class="input-shell"><span class="search-icon" aria-hidden="true">⌕</span><input id="movie-title" name="movie-title" type="search" placeholder="Try Inception, Avatar, or Toy Story" required disabled></div>
+          <label class="visually-hidden" for="recommendation-count">Number of recommendations</label>
+          <select id="recommendation-count" aria-label="Number of recommendations" disabled>
+            <option value="5">5 movies</option><option value="10">10 movies</option><option value="15">15 movies</option>
+          </select>
+          <button id="submit-button" type="submit" disabled><span>Find movies</span><span aria-hidden="true">→</span></button>
+        </form>
+        <div class="suggested-titles"><span>Popular titles</span><button type="button" class="title-chip">The Dark Knight</button><button type="button" class="title-chip">Toy Story</button><button type="button" class="title-chip">Avatar</button><button type="button" class="title-chip">Inception</button></div>
+        <p id="model-status" class="model-status" role="status" aria-live="polite"><span class="status-spinner"></span> Preparing movie data and similarity model…</p>
+      </div>
+    </section>
+
+    <section id="results-section" class="results-section" aria-labelledby="results-title" hidden>
+      <div class="results-heading"><div><p class="eyebrow dark-eyebrow">YOUR MATCHES</p><h2 id="results-title">Movies with a similar feel</h2></div><p id="result-summary" class="result-summary"></p></div>
+      <div id="suggestions" class="suggestions" hidden></div>
+      <div id="results-list" class="results-list"></div>
+    </section>
+
+    <section id="empty-state" class="empty-state" aria-live="polite">
+      <div class="empty-symbol" aria-hidden="true">✳</div>
+      <p class="empty-title">A good story leads to another.</p>
+      <p>Search for a movie above and we’ll find titles that share its content.</p>
+    </section>
+  </main>
+
+  <footer><span class="footer-brand">CineMatch</span><span>Recommendations are based on movie metadata similarity, not viewer ratings.</span><span>TF-IDF · Cosine similarity</span></footer>
+</body>
+</html>
